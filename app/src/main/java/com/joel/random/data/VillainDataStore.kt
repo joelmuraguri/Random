@@ -67,7 +67,7 @@ object VillainDataStore {
             image = R.drawable.joker
         ),
         Villain(
-            id = 1,
+            id = 11,
             title = "HomeLander",
             description = "Homelander is the leader of The Seven, The strongest Supe in the world, and the archenemy of Billy Butcher, the leader of The Boys. With the face of a movie star and the power of a god, Homelander is considered the greatest superhero alive. Not only can he fly, but he possesses super hearing, super strength and super durability far beyond most supes, and can see through anything except for zinc with his X-ray vision, as well as being able to burn and cut through things by shooting a red-colored beam of heat energy from out of his eyes.\n" +
                     "\n" +
@@ -75,5 +75,84 @@ object VillainDataStore {
             image = R.drawable.homelander
 
         )
+    )
+
+    val libraryList = listOf(
+        AndroidTools(
+            id = 12,
+            title = "Kotlin",
+            description = "Kotlin is a cross-platform, statically typed, general-purpose high-level programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise",
+            image = R.drawable.img
+        ),
+        AndroidTools(
+            id = 13,
+            title = "Gradle",
+            image = R.drawable.gradle,
+            description = "Gradle is a build automation tool for multi-language software development. It controls the development process in the tasks of compilation and packaging to testing, deployment, and publishing. Supported languages include Java, C/C++, and JavaScript."
+        ),
+        AndroidTools(
+            id = 14,
+            title = "Jetpack Compose",
+            image = R.drawable.jetpack_compose,
+            description = "Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs."
+        ),
+        AndroidTools(
+            id = 15,
+            title = "Firebase",
+            image = R.drawable.firebase,
+            description = "Firebase is a set of hosting services for any type of application. It offers NoSQL and real-time hosting of databases, content, social authentication, and notifications, or services, such as a real-time communication server."
+        ),
+        AndroidTools(
+            id = 16,
+            title = "Coil",
+            image = R.drawable.img_1,
+            description = "An image loading library for Android backed by Kotlin Coroutines. Coil is:\n" +
+                    "\n" +
+                    "Fast: Coil performs a number of optimizations including memory and disk caching, downsampling the image in memory, automatically pausing/cancelling requests, and more.\n" +
+                    "Lightweight: Coil adds ~2000 methods to your APK (for apps that already use OkHttp and Coroutines), which is comparable to Picasso and significantly less than Glide and Fresco.\n" +
+                    "Easy to use: Coil's API leverages Kotlin's language features for simplicity and minimal boilerplate.\n" +
+                    "Modern: Coil is Kotlin-first and uses modern libraries including Coroutines, OkHttp, Okio, and AndroidX Lifecycles.\n" +
+                    "Coil is an acronym for: Coroutine Image Loader."
+        ),
+        AndroidTools(
+            id = 17,
+            title = "Ktor",
+            image = R.drawable.ktor,
+            description = "Ktor is built from the ground up using Kotlin and Coroutines. You get to use a concise, multiplatform language, as well as the power of asynchronous programming with an intuitive imperative flow."
+        ),
+    )
+
+
+    val countriesList = listOf(
+        Countries(
+            id = 18,
+            title = "Kenya",
+            description = "",
+            image = "\uD83C\uDDF0\uD83C\uDDEA"
+        ),
+        Countries(
+            id = 19,
+            title = "Italy",
+            description = "",
+            image = "\uD83C\uDDEE\uD83C\uDDF9"
+        ),
+        Countries(
+            id = 20,
+            title = "South Africa",
+            description = "",
+            image = "\uD83C\uDDFF\uD83C\uDDE6"
+        ),
+        Countries(
+            id = 21,
+            title = "Germany",
+            description = "",
+            image = "\uD83C\uDDE9\uD83C\uDDEA"
+        ),
+        Countries(
+            id = 22,
+            title = "Brazil",
+            description = "",
+            image = "\uD83C\uDDE7\uD83C\uDDF7"
+        ),
     )
 }

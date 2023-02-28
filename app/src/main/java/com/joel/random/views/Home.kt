@@ -17,6 +17,8 @@ import com.joel.random.data.VillainDataStore
 fun Home(){
 
     val villains = VillainDataStore.villainList
+    val libraries = VillainDataStore.libraryList
+    val countries = VillainDataStore.countriesList
 
     Scaffold(
         topBar = {
@@ -29,8 +31,8 @@ fun Home(){
         ) {
 
             LazyVerticalGrid(cells = GridCells.Fixed(2)){
-                items(villains.size){ index ->
-                    VillainItem(villain = villains[index])
+                items(countries.size){ index ->
+                    CountryItem(countries = countries[index])
                 }
             }
         }
