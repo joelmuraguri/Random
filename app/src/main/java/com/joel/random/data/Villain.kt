@@ -14,7 +14,7 @@ data class Countries(
     val image: String
 )
 
-data class AndroidLibraries(
+data class AndroidTools(
     val id : Int,
     val title: String,
     val description: String,
