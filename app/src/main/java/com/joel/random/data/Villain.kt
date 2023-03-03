@@ -5,7 +5,11 @@ data class Villain(
     val title : String,
     val description : String,
     val image : Int
-)
+) {
+    fun makeQuery(){
+
+    }
+}
 
 data class Countries(
     val id : Int,

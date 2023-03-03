@@ -1,41 +1,31 @@
 package com.joel.random.views
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import com.joel.random.data.VillainDataStore
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.res.painterResource
+import com.joel.random.R
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Home(){
 
-    val villains = VillainDataStore.villainList
-    val libraries = VillainDataStore.libraryList
-    val countries = VillainDataStore.countriesList
-
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text(text = "Villains")})
-        }
-    ) {
-        Surface(
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
+            TopAppBar(title = { Text(text = "Random Lists")})
+        },
+        floatingActionButton = {
+            FloatingActionButton(onClick = {
 
-            LazyVerticalGrid(cells = GridCells.Fixed(2)){
-                items(countries.size){ index ->
-                    CountryItem(countries = countries[index])
-                }
+            }) {
+                Icon(painter = painterResource(id = R.drawable.ic_baseline_autorenew), contentDescription = "")
             }
         }
+    ) {
+        VillainList()
     }
-
 }
+
+
+
+
+
+

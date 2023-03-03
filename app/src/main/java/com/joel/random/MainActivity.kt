@@ -4,12 +4,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.joel.random.navigation.*
 import com.joel.random.ui.theme.RandomTheme
 import com.joel.random.views.Home
 
@@ -23,10 +30,41 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Home()
+                    AppContent()
                 }
             }
         }
     }
+}
+
+@Composable
+fun AppContent(){
+
+    val navController = rememberNavController()
+
+    val bottomScreens = listOf(
+        Villains.VILLAINS_LIST,
+        Search.SEARCH,
+        Happy.HAPPY
+    )
+
+    val showNavBar = navController
+        .currentBackStackEntryAsState().value?.destination?.route in bottomScreens
+
+    Scaffold(
+        modifier = Modifier
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        bottomBar = {
+            if (showNavBar) {
+                BottomNavigationBar(navController)
+            }
+        }
+    ) { padding ->
+
+        MainNavigation(navHostController = navController, modifier = Modifier.padding(padding))
+    }
+
+
 }
 

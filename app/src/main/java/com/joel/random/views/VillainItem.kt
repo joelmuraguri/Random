@@ -17,13 +17,14 @@ import com.joel.random.data.Villain
 
 @Composable
 fun VillainItem(
-    villain: Villain
+    villain: Villain,
+    modifier: Modifier
 ){
 
     Card(
         elevation = 5.dp,
         shape = RoundedCornerShape(15.dp),
-        modifier = Modifier
+        modifier = modifier
             .size(220.dp)
             .padding(16.dp)
     ) {
@@ -61,7 +62,6 @@ fun VillainImage(
 @Composable
 fun VillainTitle(
     title : String,
-    modifier: Modifier = Modifier
 ){
 
     Box(

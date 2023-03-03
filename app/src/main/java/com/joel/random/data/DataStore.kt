@@ -2,7 +2,7 @@ package com.joel.random.data
 
 import com.joel.random.R
 
-object VillainDataStore {
+object DataStore {
 
     val villainList = listOf(
         Villain(
