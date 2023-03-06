@@ -11,9 +11,9 @@ fun MainNavigation(
     modifier: Modifier
 ){
 
-    NavHost(navController = navHostController, startDestination = Villains.VILLAINS_GRAPH, ){
+    NavHost(navController = navHostController, startDestination = Random.RANDOM_GRAPH, ){
 
-        villainsGraph(navHostController)
+        randomGraph(navHostController)
         searchGraph(navHostController)
         happyGraph(navHostController)
     }

@@ -14,7 +14,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -22,14 +21,13 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.joel.random.R
 import com.joel.random.data.DataStore
 
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun VillainList(
+fun RandomList(
     modifier: Modifier = Modifier,
     onNavigateSearch : () -> Unit
 ){
@@ -39,7 +37,7 @@ fun VillainList(
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
 
 
-    val villains = DataStore.villainList
+    val items = DataStore.randomItemsList
 
     Scaffold(
         topBar = {
@@ -51,7 +49,8 @@ fun VillainList(
                             "Jetpack Compose",
                             modifier = Modifier
                                 .testTag("heading"),
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colors.onSurface
                         )
                     },
                     navigationIcon = {
@@ -104,95 +103,13 @@ fun VillainList(
             ) {
                 
                 LazyVerticalGrid(columns = GridCells.Fixed(2)){
-                    items(villains.size){ index ->
-                        VillainItem(
-                            villain = villains[index],
+                    items(items.size){ index ->
+                        RandomItem(
+                            items = items[index],
                             modifier = modifier.animateItemPlacement(tween(durationMillis = 300)))
                     }
                 }
             }
         }
     }
-}
-
-
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun AndroidToolsList(
-    modifier: Modifier = Modifier
-){
-
-    Log.d("ANDROID", 1.toString())
-    val libraries = DataStore.libraryList
-
-    Surface(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .padding(8.dp)
-        ) {
-
-            Text(
-                text = "Android Tools",
-                modifier = modifier
-                    .align(CenterHorizontally),
-                fontSize = 32.sp,
-                fontWeight = FontWeight.Bold
-            )
-
-            LazyVerticalGrid(columns = GridCells.Fixed(2)){
-                items(libraries.size){ index ->
-                    AndroidToolsItem(
-                        tools = libraries[index],
-                    )
-                }
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun CountryList(
-    modifier: Modifier = Modifier
-){
-
-    Log.d("COUNTRY", 2.toString())
-
-    val countries = DataStore.countriesList
-
-    Surface(
-        modifier = modifier
-            .fillMaxSize()
-    ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = modifier
-                .padding(8.dp)
-        ) {
-
-            Text(
-                text = "Countries",
-                modifier = modifier
-                .align(CenterHorizontally),
-                fontSize = 32.sp,
-                fontWeight = FontWeight.Bold
-            )
-
-            LazyVerticalGrid(columns = GridCells.Fixed(2)){
-                items(countries.size){ index ->
-                    CountryItem(
-                        countries = countries[index],
-                        modifier = modifier.animateItemPlacement(tween(durationMillis = 300))
-                    )
-                }
-            }
-        }
-    }
-
 }

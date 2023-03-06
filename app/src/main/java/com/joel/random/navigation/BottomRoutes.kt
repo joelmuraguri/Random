@@ -74,64 +74,6 @@ fun BottomNavigationBar(navController: NavHostController) {
     }
 }
 
-@ExperimentalAnimationApi
-@Composable
-private fun CustomBottomNavItem(
-    modifier: Modifier = Modifier,
-    screen: BottomRoutes,
-    isSelected: Boolean,
-) {
-    val animatedIconSize by animateDpAsState(
-        targetValue = if (isSelected) 30.dp else 25.dp,
-        animationSpec = spring(
-            stiffness = Spring.StiffnessLow,
-            dampingRatio = Spring.DampingRatioMediumBouncy
-        )
-    )
-    Box(
-        modifier = modifier,
-        contentAlignment = Alignment.Center,
-    ) {
-        Row(
-            modifier = Modifier
-                .height(if (isSelected) 36.dp else 26.dp)
-                .shadow(
-                    elevation = if (isSelected) 15.dp else 0.dp,
-                    shape = RoundedCornerShape(20.dp)
-                )
-                .background(
-                    color = MaterialTheme.colors.surface,
-                    shape = RoundedCornerShape(20.dp)
-                ),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-        ) {
-            Icon(
-                painter = painterResource(id = screen.icon), contentDescription = "bottom Bar Icon",
-
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .fillMaxHeight()
-                    .padding(horizontal = 11.dp)
-                    .alpha(if (isSelected) 1f else .7f)
-                    .size(animatedIconSize),
-                tint = if (isSelected) MaterialTheme.colors.primary else Color.Gray
-            )
-
-            if (isSelected) {
-                Text(
-                    text = screen.title,
-                    modifier = Modifier.padding(start = 8.dp, end = 10.dp),
-                    maxLines = 1,
-                    color = MaterialTheme.colors.primary
-                )
-            }
-        }
-    }
-}
-
-
-
 sealed class BottomRoutes(
     val routes : String,
     val icon : Int,
@@ -139,7 +81,7 @@ sealed class BottomRoutes(
 ) {
 
     object Home : BottomRoutes(
-        routes = "villains_screen",
+        routes = "randoms",
         icon = R.drawable.ic_baseline_home,
         title = "Home"
     )

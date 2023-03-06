@@ -4,20 +4,20 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.joel.random.views.VillainList
+import com.joel.random.views.RandomList
 
-fun NavGraphBuilder.villainsGraph(
+fun NavGraphBuilder.randomGraph(
     navController: NavHostController
 ){
 
     navigation(
-        startDestination = Villains.VILLAINS,
-        route = Villains.VILLAINS_GRAPH
+        startDestination = Random.RANDOM,
+        route = Random.RANDOM_GRAPH
     ){
         composable(
-            route = Villains.VILLAINS
+            route = Random.RANDOM
         ){
-            VillainList(
+            RandomList(
                onNavigateSearch = {
                    navController.navigate(Search.SEARCH)
                }

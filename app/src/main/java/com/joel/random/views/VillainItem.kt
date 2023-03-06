@@ -13,11 +13,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.joel.random.data.Villain
+import com.joel.random.data.RandomItems
 
 @Composable
-fun VillainItem(
-    villain: Villain,
+fun RandomItem(
+    items: RandomItems,
     modifier: Modifier
 ){
 
@@ -32,8 +32,8 @@ fun VillainItem(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            VillainImage(image = villain.image)
-            VillainTitle(title = villain.title)
+            RandomImage(image = items.image)
+            RandomTitle(title = items.title)
 
         }
     }
@@ -41,7 +41,7 @@ fun VillainItem(
 }
 
 @Composable
-fun VillainImage(
+fun RandomImage(
     image : Int,
     modifier: Modifier = Modifier
 ){
@@ -54,13 +54,13 @@ fun VillainImage(
             modifier = modifier
                 .size(150.dp)
                 .fillMaxSize(),
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Fit
         )
     }
 }
 
 @Composable
-fun VillainTitle(
+fun RandomTitle(
     title : String,
 ){
 

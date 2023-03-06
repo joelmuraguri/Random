@@ -40,7 +40,7 @@ fun AppContent(){
     val navController = rememberNavController()
 
     val bottomScreens = listOf(
-        Villains.VILLAINS,
+        Random.RANDOM,
         Search.SEARCH,
         Happy.HAPPY
     )
