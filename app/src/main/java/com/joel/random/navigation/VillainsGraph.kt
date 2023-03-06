@@ -17,11 +17,13 @@ fun NavGraphBuilder.villainsGraph(
         composable(
             route = Villains.VILLAINS
         ){
-            VillainList()
+            VillainList(
+               onNavigateSearch = {
+                   navController.navigate(Search.SEARCH)
+               }
+            )
         }
     }
-
-
 
 
 }

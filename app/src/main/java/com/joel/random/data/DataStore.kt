@@ -82,7 +82,7 @@ object DataStore {
             id = 12,
             title = "Kotlin",
             description = "Kotlin is a cross-platform, statically typed, general-purpose high-level programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise",
-            image = R.drawable.img
+            image = R.drawable.kotlin
         ),
         AndroidTools(
             id = 13,
@@ -105,7 +105,7 @@ object DataStore {
         AndroidTools(
             id = 16,
             title = "Coil",
-            image = R.drawable.img_1,
+            image = R.drawable.coil,
             description = "An image loading library for Android backed by Kotlin Coroutines. Coil is:\n" +
                     "\n" +
                     "Fast: Coil performs a number of optimizations including memory and disk caching, downsampling the image in memory, automatically pausing/cancelling requests, and more.\n" +
