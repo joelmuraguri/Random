@@ -17,13 +17,14 @@ import com.joel.random.data.AndroidTools
 
 @Composable
 fun AndroidToolsItem(
-    libraries: AndroidTools
+    tools: AndroidTools,
+    modifier: Modifier = Modifier
 ){
 
     Card(
         elevation = 5.dp,
         shape = RoundedCornerShape(15.dp),
-        modifier = Modifier
+        modifier = modifier
             .size(220.dp)
             .padding(16.dp)
     ) {
@@ -31,12 +32,10 @@ fun AndroidToolsItem(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            AndroidToolsImage(image = libraries.image)
-            AndroidToolsTitle(title = libraries.title)
-
+            AndroidToolsImage(image = tools.image)
+            AndroidToolsTitle(title = tools.title)
         }
     }
-
 }
 
 @Composable

@@ -14,13 +14,14 @@ import com.joel.random.data.Countries
 
 @Composable
 fun CountryItem(
-    countries: Countries
+    countries: Countries,
+    modifier: Modifier
 ){
 
     Card(
         elevation = 5.dp,
         shape = RoundedCornerShape(15.dp),
-        modifier = Modifier
+        modifier = modifier
             .size(220.dp)
             .padding(16.dp)
     ) {

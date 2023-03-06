@@ -11,11 +11,11 @@ fun NavGraphBuilder.villainsGraph(
 ){
 
     navigation(
-        startDestination = Villains.VILLAINS_LIST,
+        startDestination = Villains.VILLAINS,
         route = Villains.VILLAINS_GRAPH
     ){
         composable(
-            route = Villains.VILLAINS_LIST
+            route = Villains.VILLAINS
         ){
             VillainList()
         }

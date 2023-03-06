@@ -9,10 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -22,59 +19,57 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.joel.random.R
 
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun BottomNavigationBar(navHostController: NavHostController) {
+fun BottomNavigationBar(navController: NavHostController) {
     val bottomScreens = listOf(
         BottomRoutes.Home,
         BottomRoutes.Search,
         BottomRoutes.Happy,
     )
 
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp)
-            .fillMaxWidth()
-            .padding(horizontal = 8.dp),
-        // .alpha(0.95F)
-        // .padding(horizontal = 16.dp, vertical = 8.dp)
-        elevation = 8.dp
-
+    BottomNavigation(
+        contentColor = Color.White,
+        elevation = 5.dp,
+        backgroundColor = Color.White
     ) {
-
-        // BottomNavigation(backgroundColor = MaterialTheme.colors.surface,modifier= Modifier.padding(horizontal = 8.dp)) {
-        Row(
-            modifier = Modifier.fillMaxSize(),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            bottomScreens.map {
-                val isSelected = navHostController
-                    .currentBackStackEntryAsState().value?.destination?.route == it.routes
-                val animatedWeight by animateFloatAsState(targetValue = if (isSelected) 1.5f else 1f)
-                CustomBottomNavItem(
-                    screen = it, isSelected = isSelected,
-                    modifier = Modifier.weight(animatedWeight)
-                        .clickable {
-                            navHostController.navigate(
-                                it.routes
-                            ) {
-                                restoreState = true
-                                launchSingleTop = true
-
-                                val destination = navHostController.graph.findStartDestination().id
-                                popUpTo(destination) { saveState = true }
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentDestination = navBackStackEntry?.destination
+        bottomScreens.forEach { item ->
+            BottomNavigationItem(
+                icon = {
+                    Icon(
+                        painterResource(id = item.icon),
+                        contentDescription = item.title
+                    )
+                },
+                label = {
+                    Text(
+                        text = item.title,
+                        fontSize = 9.sp
+                    )
+                },
+                selectedContentColor = Color.Black,
+                unselectedContentColor = Color.LightGray.copy(0.5f),
+                alwaysShowLabel = true,
+                selected = currentDestination?.route?.contains(item.routes) == true,
+                onClick = {
+                    navController.navigate(item.routes) {
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
                             }
-                        },
-                )
-            }
+                        }
+                        launchSingleTop = true
+                    }
+                }
+            )
         }
     }
 }
@@ -144,7 +139,7 @@ sealed class BottomRoutes(
 ) {
 
     object Home : BottomRoutes(
-        routes = "home",
+        routes = "villains_screen",
         icon = R.drawable.ic_baseline_home,
         title = "Home"
     )

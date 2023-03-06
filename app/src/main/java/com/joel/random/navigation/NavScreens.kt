@@ -2,7 +2,7 @@ package com.joel.random.navigation
 
 object Villains {
     const val VILLAINS_GRAPH = "villains"
-    const val VILLAINS_LIST = "villains_list"
+    const val VILLAINS = "villains_screen"
     const val VILLAINS_DETAILS = "villains_details"
     const val VILLAIN_SEARCH = "villain_search"
 }

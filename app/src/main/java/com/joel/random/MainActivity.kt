@@ -10,15 +10,12 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.joel.random.navigation.*
 import com.joel.random.ui.theme.RandomTheme
-import com.joel.random.views.Home
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +40,7 @@ fun AppContent(){
     val navController = rememberNavController()
 
     val bottomScreens = listOf(
-        Villains.VILLAINS_LIST,
+        Villains.VILLAINS,
         Search.SEARCH,
         Happy.HAPPY
     )
@@ -61,7 +58,6 @@ fun AppContent(){
             }
         }
     ) { padding ->
-
         MainNavigation(navHostController = navController, modifier = Modifier.padding(padding))
     }
 
