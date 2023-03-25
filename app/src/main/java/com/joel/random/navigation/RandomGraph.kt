@@ -18,7 +18,9 @@ fun NavGraphBuilder.randomGraph(
             route = Random.RANDOM
         ){
             RandomList(
-                navController = navController,
+                navigateToDetails = {
+
+                }
             )
         }
     }

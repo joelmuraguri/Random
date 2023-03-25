@@ -21,95 +21,46 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.joel.random.R
 import com.joel.random.data.DataStore
+import com.joel.random.data.RandomItems
 
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun RandomList(
     modifier: Modifier = Modifier,
-    onNavigateSearch : () -> Unit
+    navigateToDetails : (RandomItems) -> Unit
 ){
 
     Log.d("VILLAINS", 3.toString())
 
-    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
-
-
     val items = DataStore.randomItemsList
 
-    Scaffold(
-        topBar = {
-            Box {
-
-                LargeTopAppBar(
-                    title = {
-                        androidx.compose.material3.Text(
-                            "Jetpack Compose",
-                            modifier = Modifier
-                                .testTag("heading"),
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colors.onSurface
-                        )
-                    },
-                    navigationIcon = {
-                        androidx.compose.material3.IconButton(
-                            onClick = {  }
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.compose_logo),
-                                contentDescription = ""
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.largeTopAppBarColors(
-                        containerColor = Color.Transparent,
-                    ),
-                    scrollBehavior = scrollBehavior,
-                    actions = {
-                             IconButton(onClick = { onNavigateSearch() }) {
-                                 Icon(painter = painterResource(id = R.drawable.ic_baseline_search), contentDescription = "")
-                             }
-                         },
-                )
-            }
-
-        },
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        floatingActionButton = {
-                              FloatingActionButton(
-                                  onClick = { /*TODO*/ },
-                                  modifier = Modifier
-                                      .padding(
-                                          bottom = 50.dp
-                                      )
-                              ) {
-                                  Icon(painter = painterResource(id = R.drawable.ic_baseline_autorenew), contentDescription = "")
-                              }
-        },
-    ) {
-        Surface(
+    Surface(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
-                    bottom = 50.dp,
-                    top = it.calculateTopPadding()
+                    bottom = 50.dp
                 )
         ) {
             Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                
                 LazyVerticalGrid(columns = GridCells.Fixed(2)){
                     items(items.size){ index ->
                         RandomItem(
                             items = items[index],
-                            modifier = modifier.animateItemPlacement(tween(durationMillis = 300)))
+                            modifier = modifier.animateItemPlacement(tween(durationMillis = 300)),
+                            onItemClick = {
+                                navigateToDetails(items[index])
+                            }
+                        )
                     }
                 }
             }
         }
-    }
+
 }

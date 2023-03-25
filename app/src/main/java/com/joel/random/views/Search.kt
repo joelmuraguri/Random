@@ -2,12 +2,9 @@ package com.joel.random.views
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -18,14 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -34,7 +23,7 @@ fun Search(
     modifier: Modifier = Modifier
 ){
 
-    val viewModel = viewModel<RandomViewModel>()
+    val viewModel = viewModel<SearchViewModel>()
     val searchText by viewModel.searchText.collectAsState()
     val randoms by viewModel.randoms.collectAsState()
     val isSearching by viewModel.isSearching.collectAsState()
@@ -68,7 +57,11 @@ fun Search(
                     items(randoms.size){ index ->
                         RandomItem(
                             items = randoms[index],
-                            modifier = modifier.animateItemPlacement(tween(durationMillis = 300)))
+                            modifier = modifier.animateItemPlacement(tween(durationMillis = 300)),
+                            onItemClick = {
+
+                            },
+                        )
                     }
                 }
         }
@@ -76,7 +69,3 @@ fun Search(
 }
 }
 
-sealed class SearchState{
-    object Loading : SearchState()
-    object Success : SearchState()
-}
