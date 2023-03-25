@@ -18,9 +18,7 @@ fun NavGraphBuilder.randomGraph(
             route = Random.RANDOM
         ){
             RandomList(
-               onNavigateSearch = {
-                   navController.navigate(Search.SEARCH)
-               }
+                navController = navController,
             )
         }
     }

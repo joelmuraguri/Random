@@ -15,7 +15,7 @@ fun MainNavigation(
 
         randomGraph(navHostController)
         searchGraph(navHostController)
-        happyGraph(navHostController)
+        badgesGraph(navHostController)
     }
 
 }

@@ -42,7 +42,7 @@ fun AppContent(){
     val bottomScreens = listOf(
         Random.RANDOM,
         Search.SEARCH,
-        Happy.HAPPY
+        Badges.BADGES
     )
 
     val showNavBar = navController

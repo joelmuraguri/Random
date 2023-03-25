@@ -13,8 +13,8 @@ object Search {
 
 }
 
-object Happy {
-    const val HAPPY_GRAPH = "happy"
-    const val HAPPY = "happy_screen"
+object Badges {
+    const val BADGES_GRAPH = "badges"
+    const val BADGES = "badges_screen"
 
 }

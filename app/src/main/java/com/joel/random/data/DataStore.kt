@@ -120,39 +120,48 @@ object DataStore {
             image = R.drawable.ktor,
             description = "Ktor is built from the ground up using Kotlin and Coroutines. You get to use a concise, multiplatform language, as well as the power of asynchronous programming with an intuitive imperative flow."
         ),
+    )
 
-
-
-
-//        RandomItems(
-//            id = 18,
-//            title = "Kenya",
-//            description = "",
-//            image = "\uD83C\uDDF0\uD83C\uDDEA".toInt()
-//        ),
-//        RandomItems(
-//            id = 19,
-//            title = "Italy",
-//            description = "",
-//            image = "\uD83C\uDDEE\uD83C\uDDF9".toInt()
-//        ),
-//        RandomItems(
-//            id = 20,
-//            title = "South Africa",
-//            description = "",
-//            image = "\uD83C\uDDFF\uD83C\uDDE6".toInt()
-//        ),
-//        RandomItems(
-//            id = 21,
-//            title = "Germany",
-//            description = "",
-//            image = "\uD83C\uDDE9\uD83C\uDDEA".toInt()
-//        ),
-//        RandomItems(
-//            id = 22,
-//            title = "Brazil",
-//            description = "",
-//            image = "\uD83C\uDDE7\uD83C\uDDF7".toInt()
-//        ),
+    val badges = listOf(
+        ComposeBadges(
+            title = "Navigation",
+            URL = "https://developer.android.com/courses/android-basics-compose/unit-4"
+        ),
+        ComposeBadges(
+            title = "WorkManager",
+            URL = "https://developer.android.com/courses/android-basics-compose/unit-7"
+        ),
+        ComposeBadges(
+            title = "Room Library",
+            URL = "https://developer.android.com/courses/android-basics-compose/unit-6"
+        ),
+        ComposeBadges(
+            title = "Data Persistence",
+            URL = "https://developer.android.com/courses/android-basics-compose/unit-6"
+        ),
+        ComposeBadges(
+            title = "Retrofit",
+            URL = "https://developer.android.com/courses/android-basics-compose/unit-5"
+        ),
+        ComposeBadges(
+            title = "Coil",
+            URL = "https://developer.android.com/courses/pathways/android-basics-compose-unit-5-pathway-2"
+        ),
+        ComposeBadges(
+            title = "Ktor",
+            URL = "https://ktor.io/"
+        ),
+        ComposeBadges(
+            title = "First App",
+            URL = "https://developer.android.com/courses/android-basics-compose/unit-1"
+        ),
+        ComposeBadges(
+            title = "Compose Samples",
+            URL = "https://developer.android.com/jetpack/compose/samples"
+        ),
+        ComposeBadges(
+            title = "Jetpack Compose",
+            URL = "https://developer.android.com/courses/android-basics-compose/unit-2"
+        ),
     )
 }

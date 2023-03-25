@@ -1,26 +1,12 @@
 package com.joel.random.navigation
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.spring
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.joel.random.R
@@ -31,7 +17,7 @@ fun BottomNavigationBar(navController: NavHostController) {
     val bottomScreens = listOf(
         BottomRoutes.Home,
         BottomRoutes.Search,
-        BottomRoutes.Happy,
+        BottomRoutes.Badges,
     )
 
     BottomNavigation(
@@ -92,9 +78,9 @@ sealed class BottomRoutes(
         title = "Search"
     )
 
-    object Happy : BottomRoutes(
-        routes = "happy",
-        icon = R.drawable.ic_baseline_emoji_happy,
-        title = "Happy"
+    object Badges : BottomRoutes(
+        routes = "badges",
+        icon = R.drawable.baseline_badge_24,
+        title = "Badges"
     )
 }

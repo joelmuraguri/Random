@@ -5,16 +5,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 
-fun NavGraphBuilder.happyGraph(
+fun NavGraphBuilder.badgesGraph(
     navController: NavHostController
 ){
 
     navigation(
-        startDestination = Happy.HAPPY,
-        route = Happy.HAPPY_GRAPH
+        startDestination = Badges.BADGES,
+        route = Badges.BADGES_GRAPH
     ){
-        composable(route = Happy.HAPPY){
-            com.joel.random.views.Happy()
+        composable(route = Badges.BADGES){
+            com.joel.random.views.Badges()
         }
     }
 
